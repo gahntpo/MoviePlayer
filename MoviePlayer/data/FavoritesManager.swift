@@ -16,9 +16,11 @@ class FavoritesManager: ObservableObject {
     var subscriptions = Set<AnyCancellable>()
     
     init() {
-        //TODO: - load favorites from disk
+      
+        //load favorites from disk
         loadFavorites()
-        //TODO: - save changes to favorites
+       
+        //save changes to favorites
         setupSaveData()
         
     }
@@ -58,7 +60,8 @@ class FavoritesManager: ObservableObject {
     
     func setupSaveData() {
         $movies
-            .filter({ $0.count > 0 })
+            .dropFirst()
+            //.print("++ save data stream")
             .subscribe(on: DispatchQueue(label: "background queue"))
             .encode(encoder: JSONEncoder())
             .tryMap({ [unowned self] data in

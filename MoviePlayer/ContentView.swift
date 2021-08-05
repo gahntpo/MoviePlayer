@@ -20,7 +20,7 @@ struct ContentView: View {
     @State private var selection: TabSelection = .movies
     
     @StateObject var favorties = FavoritesManager()
-    //@StateObject var fetcher = MovieFetcher()
+    @StateObject var fetcher = MovieFetcher()
     
     
     var body: some View {
