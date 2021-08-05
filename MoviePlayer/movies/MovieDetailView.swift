@@ -10,6 +10,8 @@ import SwiftUI
 struct MovieDetailView: View {
     let movie: Movie
     
+    @EnvironmentObject var favorites: FavoritesManager
+    
     @StateObject private var posterLoader: ImageLoader
     @StateObject private var headerLoader: ImageLoader
     
@@ -94,11 +96,18 @@ struct MovieDetailView: View {
                     .font(.body)
             }.padding([.top, .horizontal])
         }
+        .navigationTitle(movie.title)
+        .navigationBarItems(trailing: Button(action: {
+                                    favorites.toggle(movie: movie)
+                                }, label: {
+                                    Image(favorites.favoritesContain(movie: movie) ? "FavoritesLight" : "FavoritesDisabled")
+                                }))
     }
 }
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
         MovieDetailView(movie: Movie.example1())
+            .environmentObject(FavoritesManager())
     }
 }

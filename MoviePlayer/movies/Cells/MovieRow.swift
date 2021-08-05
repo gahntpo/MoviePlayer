@@ -25,7 +25,7 @@ struct MovieRow: View {
                 
             }
             Text(title)
-                .font(.headline)
+                .modifier(MovieCellStyle())
         } .padding()
     }
 }

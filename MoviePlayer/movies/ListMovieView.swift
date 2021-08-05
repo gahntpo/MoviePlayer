@@ -9,16 +9,43 @@ import SwiftUI
 
 struct ListMovieView: View {
     
-    let firstMovies = [Movie.example1(), Movie.example2()]
-    let secondMovies = [Movie.example1(), Movie.example1(), Movie.example2()]
-    
+    let categories: [MovieCategory]
+   
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        
+        ScrollView(.vertical, showsIndicators: false, content: {
+            
+            LazyVStack(alignment: .leading) {
+                ForEach(categories) { category in
+                    
+                    Text(category.title)
+                        .modifier(MovieSectionStyle())
+                        .padding(.horizontal)
+                    
+                    
+                    ForEach(category.movies) { movie in
+                        NavigationLink(
+                            destination: MovieDetailView(movie: movie),
+                            label: {
+                                MovieLoadRow(movie: movie)
+                            })
+                            .buttonStyle(PlainButtonStyle())
+                        
+                        
+                    }
+                    
+                    
+                }
+                
+            }
+            
+            
+        })
     }
 }
 
 struct ListMovieView_Previews: PreviewProvider {
     static var previews: some View {
-        ListMovieView()
+        ListMovieView(categories: [MovieCategory.example1(), MovieCategory.example2(), MovieCategory.example1()])
     }
 }

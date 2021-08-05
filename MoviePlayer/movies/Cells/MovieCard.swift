@@ -11,6 +11,8 @@ struct MovieCard: View {
     let image: UIImage?
     let title: String
     
+    let width: CGFloat = 140
+    
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
             if image != nil {
@@ -19,14 +21,22 @@ struct MovieCard: View {
                     .scaledToFit()
                     .cornerRadius(10)
                     .shadow(radius: 10, x: 0, y: 10)
-                
+                    .frame(width: width, height: width * 1.5)
+            }else {
+                Color.gray
+                    .frame(width: width, height: width * 1.5)
             }
             Text(title)
+                .modifier(MovieCellStyle())
                 .multilineTextAlignment(.leading)
-                .font(.headline)
-                .frame(maxWidth: .infinity, alignment: .leading)
-        } .padding()
-        .frame(width: 200)
+                .lineLimit(3)
+               
+                .frame(width: width)
+//                .frame(maxWidth: .infinity, alignment: .leading)
+            
+            
+        } .padding(10)
+        
     }
 }
 

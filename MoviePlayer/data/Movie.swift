@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Movie: Identifiable {
+struct Movie: Identifiable, Codable {
     
     let title: String
     let description: String
@@ -17,10 +17,7 @@ struct Movie: Identifiable {
     let numberOfPeopleWatching: Int
     let categories: [String]
     
-    var id: String {
-        return title
-        //TODO: check if title is unque enough or use other property from json
-    }
+    var id: UUID = UUID()
     
     static func example1() -> Movie {
         
@@ -49,3 +46,9 @@ struct Movie: Identifiable {
     }
 }
 
+
+extension Movie: Hashable, Comparable {
+    static func < (lhs: Movie, rhs: Movie) -> Bool {
+        lhs.title < rhs.title
+    }
+}

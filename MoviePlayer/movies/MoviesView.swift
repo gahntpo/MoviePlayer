@@ -7,20 +7,41 @@
 
 import SwiftUI
 
+enum DisplayStyle: String, CaseIterable {
+    case grid = "Grid"
+    case list = "List"
+}
+
+
 struct MoviesView: View {
     
-    let firstMovies = [Movie.example1(), Movie.example2()]
-    let secondMovies = [Movie.example1(), Movie.example1(), Movie.example2()]
+    @State private var displayStyle = DisplayStyle.list
     
+    @State private var movieCategories = [MovieCategory.example1(), MovieCategory.example2(), MovieCategory.example1()]
     
     var body: some View {
-        ScrollView {
-            LazyVStack {
-                ForEach(firstMovies) { movie in
-                    Text(movie.title)
+        NavigationView {
+            VStack {
+                
+                Picker("", selection: $displayStyle) {
+                    
+                    Text("Grid")
+                        .tag(DisplayStyle.grid)
+                    Text("List")
+                        .tag(DisplayStyle.list)
+                }.pickerStyle(SegmentedPickerStyle())
+                .padding()
+                
+                
+                
+                switch displayStyle {
+                case .list: ListMovieView(categories: movieCategories)
+                case .grid: GridMovieView(categories: movieCategories)
                 }
+                
             }
-            
+            .navigationTitle("Movies")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
