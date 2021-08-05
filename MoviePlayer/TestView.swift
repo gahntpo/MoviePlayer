@@ -13,9 +13,19 @@ struct TestView: View {
     var body: some View {
         List {
          Text("fetching playlists with movie trailes")
-            
-            ForEach(fetcher.playlists) { playlist in
-                Text(playlist.snippet.title)
+
+            ForEach(fetcher.categories) { category in
+                
+                
+                VStack {
+                Text(category.title)
+                    
+                    ForEach(category.movies) { movie in
+                        Text(movie.title)
+                       MovieLoadRow(movie: movie)
+                    }
+                    
+                }
             }
         }
     }

@@ -16,11 +16,11 @@ enum DisplayStyle: String, CaseIterable {
 struct MoviesView: View {
     
     @State private var displayStyle = DisplayStyle.list
-    
-    @State private var movieCategories = [MovieCategory.example1(), MovieCategory.example2(), MovieCategory.example1()]
+    @StateObject var fetcher: MovieFetcher
     
     var body: some View {
         NavigationView {
+            
             VStack {
                 
                 Picker("", selection: $displayStyle) {
@@ -35,8 +35,8 @@ struct MoviesView: View {
                 
                 
                 switch displayStyle {
-                case .list: ListMovieView(categories: movieCategories)
-                case .grid: GridMovieView(categories: movieCategories)
+                case .list: ListMovieView(categories: fetcher.categories)
+                case .grid: GridMovieView(categories: fetcher.categories)
                 }
                 
             }
@@ -48,6 +48,6 @@ struct MoviesView: View {
 
 struct MoviesView_Previews: PreviewProvider {
     static var previews: some View {
-        MoviesView()
+        MoviesView(fetcher: MovieFetcher())
     }
 }

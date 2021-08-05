@@ -22,7 +22,7 @@ struct MovieDetailView: View {
         self._posterLoader = StateObject(wrappedValue: load)
         
         let headerload = ImageLoader()
-        headerload.load(url: movie.headerImageURL)
+        headerload.load(url: movie.posterImageURL)
         self._headerLoader = StateObject(wrappedValue: headerload)
         
     }
@@ -52,9 +52,10 @@ struct MovieDetailView: View {
                 if posterLoader.image != nil {
                     Image(uiImage: posterLoader.image!)
                         .resizable()
-                        .scaledToFit()
-                        .cornerRadius(2)
-                        .frame(maxHeight: posterImageHeight)
+                        .scaledToFill()
+                        .frame(width: posterImageHeight * 0.7, height: posterImageHeight)
+                        .clipShape(RoundedRectangle(cornerRadius: 2))
+                        .shadow(radius: 10, x: 0, y: 10)
                         .shadow(color: .black, radius: 10, x: 0, y: 10)
                     
                 }else {
@@ -72,9 +73,7 @@ struct MovieDetailView: View {
                     
                     Text("\(movie.numberOfPeopleWatching) People watching")
                         .font(.subheadline)
-                    Text(movie.categories.reduce("", { all, next in
-                        all + next + " "
-                    }))
+                    Text(movie.categories)
                     .font(.subheadline)
                     
                     HStack(spacing: 2) {
@@ -85,6 +84,7 @@ struct MovieDetailView: View {
                             Image(systemName: "star.fill").foregroundColor(star < Int(movie.rating) ? starColor : Color(.systemGray))
                             
                         }
+                        //TODO: - interactives rating
                     }.padding(.vertical)
                     
                 }
@@ -92,9 +92,9 @@ struct MovieDetailView: View {
                 Spacer()
             }
             .padding(.leading)
-            .offset(x: 0, y: -posterImageHeight * 0.4 )
-            .padding(.bottom, -posterImageHeight * 0.4)
-            .padding(.bottom)
+            .offset(x: 0, y: -posterImageHeight * 0.45 )
+            .padding(.bottom, -posterImageHeight * 0.45)
+           // .padding(.bottom)
             
             
             
@@ -114,7 +114,7 @@ struct MovieDetailView: View {
 
 struct MovieDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        MovieDetailView(movie: Movie.example1())
+        MovieDetailView(movie: Movie.example2())
             .environmentObject(FavoritesManager())
     }
 }

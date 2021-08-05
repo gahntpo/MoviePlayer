@@ -11,18 +11,14 @@ struct MovieLoadRow: View {
     
     let movie: Movie
     
-    @StateObject private var headerLoader: ImageLoader
-   
-    init(movie: Movie) {
-        self.movie = movie
-        let load = ImageLoader()
-        load.load(url: movie.headerImageURL)
-        self._headerLoader = StateObject(wrappedValue: load)
-    }
+    @StateObject private var headerLoader = ImageLoader()
+
     
     var body: some View {
         MovieRow(image: headerLoader.image, title: movie.title)
-        
+            .onAppear {
+                headerLoader.load(url: movie.posterImageURL)
+            }
     }
 }
 

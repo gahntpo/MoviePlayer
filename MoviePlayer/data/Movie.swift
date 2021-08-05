@@ -9,45 +9,59 @@ import Foundation
 
 struct Movie: Identifiable, Codable {
     
-    let title: String
-    let description: String
-    let posterImageURL: String
-    let headerImageURL: String
-    let rating: Double
-    let numberOfPeopleWatching: Int
-    let categories: [String]
+    let id: String
+    private let snippet: Snippet
     
-    var id: UUID = UUID()
+    var title: String {
+        snippet.title
+    }
+    var description: String {
+        snippet.description
+    }
+    var posterImageURL: String {
+        if let maxres = snippet.thumbnails.maxres {
+            return maxres.url
+        }else if let high = snippet.thumbnails.high {
+            return high.url
+        }else {
+            return snippet.thumbnails.thumbnailsDefault.url
+        }
+    }
+    
+    let numberOfPeopleWatching: Int = 2021
+    let categories: String = "Action, Science Fiction"
+    let rating: Double = Double.random(in: 2...5)
+    
+    public enum CodingKeys: String, CodingKey {
+        case id
+        case snippet
+    }
+    
     
     static func example1() -> Movie {
+        let snippet = Snippet(channelID: "abcs", title: "Venom", description: "Die Entwicklungsgeschichte von Marvels geheimnisvollster, komplexester und krassester Figur – Venom! Als Journalist versucht Eddie (Tom Hardy) schon seit Langem den zwielichtigen, aber genialen Gründer der Life Foundation, Carlton Drake (Riz Ahmed), zu überführen – eine Besessenheit, die ihn bereits seine Karriere und die Beziehung zu seiner Freundin Anne Weying (Michelle Williams) gekostet hat. Bei der aktuellen Recherche zu Drakes Experimenten verbindet sich das Alien Venom mit Eddies Körper und verleiht ihm nicht nur erstaunliche Superkräfte, sondern auch die Freiheit, zu tun, was immer er will. Durchtrieben, düster, unberechenbar und voller Zorn: Eddie muss lernen, die gefährlichen Kräfte, die von Venom ausgehen, zu kontrollieren. Und ist gleichzeitig berauscht von der neu gewonnen Macht, die er nun in sich spürt.", thumbnails: Thumbnails(url: "https://i.ytimg.com/vi/9DnN_g24Odg/hqdefault.jpg"))
         
-        Movie(title: "Venom",
-              description: "Die Entwicklungsgeschichte von Marvels geheimnisvollster, komplexester und krassester Figur – Venom! Als Journalist versucht Eddie (Tom Hardy) schon seit Langem den zwielichtigen, aber genialen Gründer der Life Foundation, Carlton Drake (Riz Ahmed), zu überführen – eine Besessenheit, die ihn bereits seine Karriere und die Beziehung zu seiner Freundin Anne Weying (Michelle Williams) gekostet hat. Bei der aktuellen Recherche zu Drakes Experimenten verbindet sich das Alien Venom mit Eddies Körper und verleiht ihm nicht nur erstaunliche Superkräfte, sondern auch die Freiheit, zu tun, was immer er will. Durchtrieben, düster, unberechenbar und voller Zorn: Eddie muss lernen, die gefährlichen Kräfte, die von Venom ausgehen, zu kontrollieren. Und ist gleichzeitig berauscht von der neu gewonnen Macht, die er nun in sich spürt.",
-              posterImageURL: "https://i.ytimg.com/vi/eDdsl0-NdY0/movieposter.jpg",
-              headerImageURL: "https://de.web.img3.acsta.net/r_654_368/newsv7/21/02/19/16/08/5459488.jpg",   //not from Youtube
-              rating: 4.7,
-              numberOfPeopleWatching: 2304,
-              categories: ["Action", "Adventure", "Fantasy"])
+        return Movie(id: UUID().uuidString, snippet: snippet)
     }
     
     
     static func example2() -> Movie {
+        let snippet = Snippet(channelID: "abcs",
+                              title: "Planet der Affen: Prevolution",
+                              description: " Will Rodman (James Franco) ist ein junger, engagierter Wissenschaftler, der zusammen mit seinem Vater (John Lithgow), ebenfalls ein Forscher, Heilmittel für Menschen erforscht. Ein vielversprechendes Mittel, in das Will viele Hoffnungen setzt, testet er in einem hoch-modernen Labor an Affen. Ein besonderer Affe namens Caesar (Andy Serkis) wächst ihm dabei ans Herz. Das Mittel scheint zu funktionieren. Doch plötzlich ruft es noch ganz andere, unerwartete Reaktionen hervor... Die Primatenforscherin Caroline (Freida Pinto) unterstützt Will auf der Suche nach den Ursachen - und den Folgen!\n  PLANET DER AFFEN: PREVOLUTION ist ein Prequel der beliebten Planet der Affen-Franchise, das modernste Special Effects des prämierten WETA Studios ('Avatar', 'Herr Der Ringe') enthält.",
+                              thumbnails: Thumbnails(url:  "https://i.ytimg.com/vi/6ZfuNTqbHE8/maxresdefault.jpg"))
         
-        Movie(title: "Planet der Affen: Prevolution",
-              description: " Will Rodman (James Franco) ist ein junger, engagierter Wissenschaftler, der zusammen mit seinem Vater (John Lithgow), ebenfalls ein Forscher, Heilmittel für Menschen erforscht. Ein vielversprechendes Mittel, in das Will viele Hoffnungen setzt, testet er in einem hoch-modernen Labor an Affen. Ein besonderer Affe namens Caesar (Andy Serkis) wächst ihm dabei ans Herz. Das Mittel scheint zu funktionieren. Doch plötzlich ruft es noch ganz andere, unerwartete Reaktionen hervor... Die Primatenforscherin Caroline (Freida Pinto) unterstützt Will auf der Suche nach den Ursachen - und den Folgen!\n  PLANET DER AFFEN: PREVOLUTION ist ein Prequel der beliebten Planet der Affen-Franchise, das modernste Special Effects des prämierten WETA Studios ('Avatar', 'Herr Der Ringe') enthält.",
-              posterImageURL: "https://i.ytimg.com/vi/kYBpmPaeuQ0/movieposter.jpg",
-              headerImageURL: "https://crops.giga.de/74/f1/d1/e97c60bc9ce607570b894e1e96_YyAxMzI5eDc0OCs1NisyAnJlIDg0MCA0NzIDNzFlY2JjMDc4ZTk=.jpeg",
-              rating: 4.7,
-              numberOfPeopleWatching: 2304,
-              categories: ["Science fiction"])
-    
-    
-        //https://i.ytimg.com/vi/91055TN7pVA/hqdefault.jpg?sqp=-oaymwEiCKgBEF5IWvKriqkDFQgBFQAAAAAYASUAAMhCPQCAokN4AQ==&rs=AOn4CLCxt-hLbeXfzMGyfzjNGM1RUEFH0w
+        
+        return Movie(id: UUID().uuidString, snippet: snippet)
     }
 }
 
 
-extension Movie: Hashable, Comparable {
+extension Movie:  Comparable {
+    static func == (lhs: Movie, rhs: Movie) -> Bool {
+        lhs.id == rhs.id
+    }
+    
     static func < (lhs: Movie, rhs: Movie) -> Bool {
         lhs.title < rhs.title
     }

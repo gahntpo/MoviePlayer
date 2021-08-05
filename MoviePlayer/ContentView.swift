@@ -20,35 +20,65 @@ struct ContentView: View {
     @State private var selection: TabSelection = .movies
     
     @StateObject var favorties = FavoritesManager()
- 
+    @StateObject var fetcher = MovieFetcher()
     
+  
     
     var body: some View {
         
-        TabView(selection: $selection) {
+        if fetcher.isLoading {
             
-            MoviesView()
-                .tabItem { Label("Movies", image: selection == .movies ? "MovieLight" : "MovieDisabled") }
-                .tag(TabSelection.movies)
+            VStack(spacing: 20) {
+                ProgressView()
+                   
+                Text("Loading movies")
+                    .font(.headline)
+            }
             
-            FavoritesView()
-                .tabItem { Label("Favorites", image: selection == .favorites ? "FavoritesLight" : "FavoritesDisabled") }
-                .tag(TabSelection.favorites)
+        }else if fetcher.error != nil {
             
-            SettingsView()
-                .tabItem { Label("Settings", image: selection == .settings ? "SettingsLight" : "SettingsDisabled") }
-                .tag(TabSelection.settings)
+            VStack(spacing: 20) {
+                Text(fetcher.error ?? "")
+                
+                Button(action: {
+                    fetcher.fetchInitialPlaylistsPage()
+                }, label: {
+                    Text("Retry")
+                })
+
+                Image("SorryImage")
+                    .resizable()
+                    .scaledToFit()
+                    .padding()
+            }
             
+        }else {
             
-            
-        }.environmentObject(favorties)
-       
+            TabView(selection: $selection) {
+                MoviesView(fetcher: fetcher)
+                    .tabItem { Label("Movies", image: selection == .movies ? "MovieLight" : "MovieDisabled") }
+                    .tag(TabSelection.movies)
+                
+                FavoritesView()
+                    .tabItem { Label("Favorites", image: selection == .favorites ? "FavoritesLight" : "FavoritesDisabled") }
+                    .tag(TabSelection.favorites)
+                
+                SettingsView()
+                    .tabItem { Label("Settings", image: selection == .settings ? "SettingsLight" : "SettingsDisabled") }
+                    .tag(TabSelection.settings)
+                
+                
+                
+            }.environmentObject(favorties)
+        }
     }
     
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
+        
         ContentView()
+        
     }
 }

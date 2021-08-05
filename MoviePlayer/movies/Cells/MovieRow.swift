@@ -23,6 +23,13 @@ struct MovieRow: View {
                     .cornerRadius(10)
                     .shadow(radius: 10, x: 0, y: 10)
                 
+            } else {
+                ZStack {
+                RoundedRectangle(cornerRadius: 10).fill(Color.gray)
+                    .frame(height: 200)
+                    .shadow(radius: 10, x: 0, y: 10)
+                 ProgressView()
+                }
             }
             Text(title)
                 .modifier(MovieCellStyle())

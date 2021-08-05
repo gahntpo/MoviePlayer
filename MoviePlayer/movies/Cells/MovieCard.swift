@@ -18,10 +18,10 @@ struct MovieCard: View {
             if image != nil {
                 Image(uiImage: image!)
                     .resizable()
-                    .scaledToFit()
-                    .cornerRadius(10)
-                    .shadow(radius: 10, x: 0, y: 10)
+                    .scaledToFill()
                     .frame(width: width, height: width * 1.5)
+                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .shadow(radius: 10, x: 0, y: 10)
             }else {
                 Color.gray
                     .frame(width: width, height: width * 1.5)
@@ -43,7 +43,7 @@ struct MovieCard: View {
 struct MovieCard_Previews: PreviewProvider {
     static var previews: some View {
         Group {
-            MovieCard(image: UIImage(named: "venom_movieposter"), title: "Venom")
+            MovieCard(image: UIImage(named: "venom_thumbnail"), title: "Venom")
             MovieCard(image: UIImage(named: "affen_movieposter"), title: "Planet der Affen: Prevolution")
         }
         .previewLayout(.fixed(width: 400, height: 400))
