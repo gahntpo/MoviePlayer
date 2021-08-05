@@ -53,6 +53,7 @@ struct MovieDetailView: View {
                     Image(uiImage: posterLoader.image!)
                         .resizable()
                         .scaledToFit()
+                        .cornerRadius(2)
                         .frame(maxHeight: posterImageHeight)
                         .shadow(color: .black, radius: 10, x: 0, y: 10)
                     
@@ -64,7 +65,7 @@ struct MovieDetailView: View {
                 
                     Text(movie.title)
                         .multilineTextAlignment(.leading)
-                        .lineLimit(2)
+                        .lineLimit(3)
                         .font(.largeTitle)
                         .foregroundColor(.white)
                         .padding(.vertical)
@@ -87,10 +88,16 @@ struct MovieDetailView: View {
                     }.padding(.vertical)
                     
                 }
-                
-            }.offset(x: 0, y: -posterImageHeight * 0.4 )
+              
+                Spacer()
+            }
+            .padding(.leading)
+            .offset(x: 0, y: -posterImageHeight * 0.4 )
             .padding(.bottom, -posterImageHeight * 0.4)
             .padding(.bottom)
+            
+            
+            
             ScrollView {
                 Text(movie.description)
                     .font(.body)
