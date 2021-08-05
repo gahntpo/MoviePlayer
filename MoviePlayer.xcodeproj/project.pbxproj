@@ -32,6 +32,7 @@
 		17FB5F3826BBC4D40027C908 /* TextStyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB5F3726BBC4D40027C908 /* TextStyleGuide.swift */; };
 		17FB5F3A26BBC76E0027C908 /* FavoritesManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FB5F3926BBC76E0027C908 /* FavoritesManager.swift */; };
 		17FDEAF126BBF52900E71CE6 /* PlaylistPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDEAF026BBF52900E71CE6 /* PlaylistPage.swift */; };
+		17FDEAF326BBF7F200E71CE6 /* TestView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17FDEAF226BBF7F200E71CE6 /* TestView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -62,6 +63,7 @@
 		17FB5F3726BBC4D40027C908 /* TextStyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextStyleGuide.swift; sourceTree = "<group>"; };
 		17FB5F3926BBC76E0027C908 /* FavoritesManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesManager.swift; sourceTree = "<group>"; };
 		17FDEAF026BBF52900E71CE6 /* PlaylistPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaylistPage.swift; sourceTree = "<group>"; };
+		17FDEAF226BBF7F200E71CE6 /* TestView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,6 +160,7 @@
 				17BA98BD26BABC3500577066 /* AppDelegate.swift */,
 				17BA98BF26BABC3500577066 /* SceneDelegate.swift */,
 				17BA98C126BABC3500577066 /* ContentView.swift */,
+				17FDEAF226BBF7F200E71CE6 /* TestView.swift */,
 				177F744C26BBB587009110B8 /* movies */,
 				177F744B26BBB57C009110B8 /* favotites */,
 				177F744926BBB557009110B8 /* settings */,
@@ -253,6 +256,7 @@
 			files = (
 				17BA98BE26BABC3500577066 /* AppDelegate.swift in Sources */,
 				177F745426BBBB15009110B8 /* MovieLoadCard.swift in Sources */,
+				17FDEAF326BBF7F200E71CE6 /* TestView.swift in Sources */,
 				177F744326BAF38F009110B8 /* MovieRow.swift in Sources */,
 				177F744526BAF39A009110B8 /* MovieCard.swift in Sources */,
 				17BA98C026BABC3500577066 /* SceneDelegate.swift in Sources */,

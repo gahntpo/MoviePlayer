@@ -27,9 +27,13 @@ struct PlaylistPage: Decodable {
     
 }
 
-struct Playlist: Decodable {
+struct Playlist: Decodable, Identifiable {
     let playlistId: String
     let snippet: Snippet
+    
+    var id: String {
+        return playlistId
+    }
     
     public enum CodingKeys: String, CodingKey {
      case playlistId
