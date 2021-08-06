@@ -27,12 +27,14 @@ class MovieFetcher: ObservableObject {
     }
     
     
+    let maxResults = 5
+    
     func fetchInitialPlaylistsPage() {
         
         error = nil
         isLoading = true
         
-        let searchPlaylistsPath = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=5&q=trailer&safeSearch=safeSearchSettingUnspecified&type=playlist&key=\(apiKey)"
+        let searchPlaylistsPath = "https://youtube.googleapis.com/youtube/v3/search?part=snippet&maxResults=\(maxResults)&q=trailer&safeSearch=safeSearchSettingUnspecified&type=playlist&key=\(apiKey)"
     
         guard let url = URL(string: searchPlaylistsPath)  else {
             self.error = "Sorry we you could not get you data"
@@ -48,12 +50,17 @@ class MovieFetcher: ObservableObject {
                     print(error.localizedDescription)
                     self.error = error.localizedDescription
                     
+                    if let data = data, let result = try? JSONSerialization.jsonObject(with: data, options: []){
+                      print("error occured, server send response: \(result)")
+                    }
+                    
                 }else if let response = response as? HTTPURLResponse, !(200...299).contains(response.statusCode) {
                     print("bad status code \(response.statusCode)")
                     self.error = "Sorry something went wrong"
                 }
                 
                 if let data = data {
+                
                     do {
                         let decodedResult = try JSONDecoder().decode(PlaylistPage.self, from: data)
                         self.pages.append(decodedResult)
@@ -79,7 +86,7 @@ class MovieFetcher: ObservableObject {
     func fetchPlaylist(with playlistID: String) {
         
         //  let playlistID = "PLBCF2DAC6FFB574DE"
-        let playlistpath = "https://www.googleapis.com/youtube/v3/playlistItems?maxResults=15&part=snippet&playlistId=\(playlistID)&key=\(apiKey)"
+        let playlistpath = "https://www.googleapis.com/youtube/v3/playlistItems?maxResults=\(maxResults)&part=snippet&playlistId=\(playlistID)&key=\(apiKey)"
         
         guard let url = URL(string: playlistpath)  else {
             self.error = "Sorry we you could not get you data"

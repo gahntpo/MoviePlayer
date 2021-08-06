@@ -12,7 +12,6 @@ enum TabSelection {
     case favorites
     case settings
     
-  
 }
 
 struct ContentView: View {
@@ -37,20 +36,7 @@ struct ContentView: View {
             
         }else if fetcher.error != nil {
             
-            VStack(spacing: 20) {
-                Text(fetcher.error ?? "")
-                
-                Button(action: {
-                    fetcher.fetchInitialPlaylistsPage()
-                }, label: {
-                    Text("Retry")
-                })
-
-                Image("SorryImage")
-                    .resizable()
-                    .scaledToFit()
-                    .padding()
-            }
+           ErrorView(fetcher: fetcher)
             
         }else {
             
@@ -72,7 +58,6 @@ struct ContentView: View {
             }.environmentObject(favorties)
         }
     }
-    
 }
 
 struct ContentView_Previews: PreviewProvider {

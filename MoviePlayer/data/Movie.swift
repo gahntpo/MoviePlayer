@@ -57,7 +57,7 @@ struct Movie: Identifiable, Codable {
 }
 
 
-extension Movie:  Comparable {
+extension Movie:  Comparable, Hashable {
     static func == (lhs: Movie, rhs: Movie) -> Bool {
         lhs.id == rhs.id
     }

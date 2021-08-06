@@ -13,7 +13,10 @@ class ImageLoader: ObservableObject {
     @Published var image: UIImage?
     @Published var errorMessage: String?
     
+    var url: String = ""
+    
     func load(url: String) {
+        self.url = url
         
         guard let imageURL = URL(string: url) else {
             fatalError("ImageURL is not correct!")

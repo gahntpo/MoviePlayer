@@ -12,20 +12,8 @@ struct MovieDetailView: View {
     
     @EnvironmentObject var favorites: FavoritesManager
     
-    @StateObject private var posterLoader: ImageLoader
-    @StateObject private var headerLoader: ImageLoader
-    
-    init(movie: Movie) {
-        self.movie = movie
-        let load = ImageLoader()
-        load.load(url: movie.posterImageURL)
-        self._posterLoader = StateObject(wrappedValue: load)
-        
-        let headerload = ImageLoader()
-        headerload.load(url: movie.posterImageURL)
-        self._headerLoader = StateObject(wrappedValue: headerload)
-        
-    }
+    @StateObject private var posterLoader = ImageLoader()
+    @StateObject private var headerLoader = ImageLoader()
     
     let starColor: Color = .red
     let posterImageHeight: CGFloat = 200
@@ -35,7 +23,7 @@ struct MovieDetailView: View {
         VStack {
             
            
-            if posterLoader.image != nil {
+            if headerLoader.image != nil {
                 Image(uiImage: headerLoader.image!)
                     .resizable()
                     .scaledToFill()
@@ -109,6 +97,14 @@ struct MovieDetailView: View {
                                 }, label: {
                                     Image(favorites.favoritesContain(movie: movie) ? "FavoritesLight" : "FavoritesDisabled")
                                 }))
+        .onAppear(perform: {
+            // loading images when view appears
+            posterLoader.load(url: movie.posterImageURL)
+            headerLoader.load(url: movie.posterImageURL)
+        })
+        
+        
+        
     }
 }
 
