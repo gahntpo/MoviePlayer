@@ -10,6 +10,7 @@ import Foundation
 struct Constants {
    
     
+   // API key from Youtube v4 is stored in Youtube.plist under key APIKey
    static func key() -> String {
         
         let plistName = "Youtube"

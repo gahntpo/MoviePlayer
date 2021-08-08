@@ -18,7 +18,7 @@ struct ListMovieView: View {
         
         ScrollView(.vertical, showsIndicators: false, content: {
             
-            LazyVStack(alignment: .leading) {
+            LazyVStack(alignment: .leading, spacing: 0) {
                 ForEach(categories) { category in
                     
                     Text(category.title)
@@ -33,11 +33,8 @@ struct ListMovieView: View {
                                 MovieLoadRow(movie: movie)
                             })
                             .buttonStyle(PlainButtonStyle())
-                        
-                        
+
                     }
-                    
-                    
                 }
                 
             }
@@ -48,9 +45,9 @@ struct ListMovieView: View {
         
     }
 }
-//
-//struct ListMovieView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ListMovieView(categories: [MovieCategory.example1(), MovieCategory.example2(), MovieCategory.example1()])
-//    }
-//}
+
+struct ListMovieView_Previews: PreviewProvider {
+    static var previews: some View {
+        ListMovieView(categories: [MovieCategory.example1(), MovieCategory.example2(), MovieCategory.example1()])
+    }
+}

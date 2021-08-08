@@ -14,35 +14,24 @@ struct WrapperFavoritesViewController: UIViewControllerRepresentable {
     @Binding var selectedMovie: Movie?
     
     
-//    func makeUIViewController(context: Context) -> SearchFavoritesUIViewController {
-//        let controller = SearchFavoritesUIViewController(favorites: favorites)
-//      
-//        controller.selectedRowForMovie = { movie in
-//            self.selectedMovie = movie
-//        }
-//        return controller
-//    }
-//    
-//    func updateUIViewController(_ uiViewController: SearchFavoritesUIViewController, context: Context) {
-//        
-//        if selectedMovie == nil {
-//            uiViewController.resultsController.tableView.deselectSelectedRow(animated: true)
-//        }
-//    }
-    
-    func makeUIViewController(context: Context) -> FavoritesUIViewController {
-        let controller = FavoritesUIViewController(favorites: favorites)
+    func makeUIViewController(context: Context) -> UINavigationController {
 
-        controller.selectedRowForMovie = { movie in
-            self.selectedMovie = movie
-        }
+        let main = MainMovieTableViewController(favorites: favorites)
+        main.title = "Favorites"
+       
+        //NEED to use UINavigationController instead of SwiftUI NavigationView
+        // otherwise searchbar is not visible
+       let controller = UINavigationController(rootViewController: main)
+        controller.navigationBar.prefersLargeTitles = false
+     
         return controller
     }
 
-    func updateUIViewController(_ uiViewController: FavoritesUIViewController, context: Context) {
-
-        if selectedMovie == nil {
-            uiViewController.tableView.deselectSelectedRow(animated: true)
+    func updateUIViewController(_ uiViewController: UINavigationController, context: Context) {
+        if selectedMovie == nil,
+           let main = uiViewController.viewControllers.last as? MainMovieTableViewController {
+    
+            main.tableView.deselectSelectedRow(animated: true)
         }
     }
 

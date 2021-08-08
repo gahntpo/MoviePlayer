@@ -11,36 +11,15 @@ struct FavoritesView: View {
     
     @EnvironmentObject var favorites: FavoritesManager
     @State var selectedMovie: Movie? = nil
-    
-    @State private var searchText: String = ""
-    
-    var filteredMovies: [Movie] {
-        if searchText.count == 0 {
-            return favorites.movies
-        }else {
-            return favorites.movies.filter({ $0.title.contains(searchText) })
-        }
-    }
+
     
     var body: some View {
         
-        NavigationView {
+
             WrapperFavoritesViewController(favorites: favorites, selectedMovie: $selectedMovie)
-            .navigationTitle("Favorites")
-            .navigationBarTitleDisplayMode(.inline)
-                .background(
-                    Group {
-                        if selectedMovie != nil {
-                            NavigationLink(
-                                destination: MovieDetailView(movie: selectedMovie!),
-                                tag: selectedMovie!,
-                                selection: $selectedMovie,
-                                label: {Text("Navigate")})
-                        }else {
-                            EmptyView()
-                        }
-                    })
-        }
+
+        
+        
 //        VStack {
 //            Text("Favorites")
 //                .font(.headline)

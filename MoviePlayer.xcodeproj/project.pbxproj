@@ -16,17 +16,17 @@
 		175B56D426BD114600A873D8 /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175B56D326BD114600A873D8 /* LoadingView.swift */; };
 		175B56D626BD115100A873D8 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175B56D526BD115100A873D8 /* ErrorView.swift */; };
 		175B56D826BD131200A873D8 /* ButtonStyleGuide.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175B56D726BD131200A873D8 /* ButtonStyleGuide.swift */; };
-		175B56DA26BD1BCC00A873D8 /* FavoritesUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175B56D926BD1BCC00A873D8 /* FavoritesUIViewController.swift */; };
 		17748A5226BD2B4500B2AAD1 /* WrapperFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17748A5126BD2B4500B2AAD1 /* WrapperFavoritesViewController.swift */; };
 		17748A5426BD2DE500B2AAD1 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17748A5326BD2DE500B2AAD1 /* MovieCell.swift */; };
 		17748A5626BD37D700B2AAD1 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17748A5526BD37D700B2AAD1 /* ImageCache.swift */; };
 		177841E526BE762600354898 /* CardImageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841E426BE762600354898 /* CardImageUIView.swift */; };
-		177841E726BE88F000354898 /* SearchFavoritesUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841E626BE88F000354898 /* SearchFavoritesUIViewController.swift */; };
-		177841E926BE8B6700354898 /* MovieTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841E826BE8B6700354898 /* MovieTableView.swift */; };
 		177841EB26BE8C3200354898 /* UITableView+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841EA26BE8C3200354898 /* UITableView+helper.swift */; };
 		177841F126BEB19000354898 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841F026BEB19000354898 /* APIError.swift */; };
 		177841F626BEB4E300354898 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841F526BEB4E300354898 /* DataProvider.swift */; };
 		177841F826BFDE5D00354898 /* Youtube.plist in Resources */ = {isa = PBXBuildFile; fileRef = 177841F726BFDE5D00354898 /* Youtube.plist */; };
+		177841FC26BFECB700354898 /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841FB26BFECB700354898 /* BaseTableViewController.swift */; };
+		177841FE26BFEE0300354898 /* MainMovieTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841FD26BFEE0300354898 /* MainMovieTableViewController.swift */; };
+		1778420026BFEEC900354898 /* ResultsTableController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841FF26BFEEC900354898 /* ResultsTableController.swift */; };
 		177F743F26BAE8DA009110B8 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F743E26BAE8DA009110B8 /* MovieDetailView.swift */; };
 		177F744126BAE978009110B8 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F744026BAE978009110B8 /* ImageLoader.swift */; };
 		177F744326BAF38F009110B8 /* MovieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F744226BAF38F009110B8 /* MovieRow.swift */; };
@@ -60,17 +60,17 @@
 		175B56D326BD114600A873D8 /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 		175B56D526BD115100A873D8 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		175B56D726BD131200A873D8 /* ButtonStyleGuide.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonStyleGuide.swift; sourceTree = "<group>"; };
-		175B56D926BD1BCC00A873D8 /* FavoritesUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesUIViewController.swift; sourceTree = "<group>"; };
 		17748A5126BD2B4500B2AAD1 /* WrapperFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperFavoritesViewController.swift; sourceTree = "<group>"; };
 		17748A5326BD2DE500B2AAD1 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		17748A5526BD37D700B2AAD1 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
 		177841E426BE762600354898 /* CardImageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageUIView.swift; sourceTree = "<group>"; };
-		177841E626BE88F000354898 /* SearchFavoritesUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFavoritesUIViewController.swift; sourceTree = "<group>"; };
-		177841E826BE8B6700354898 /* MovieTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableView.swift; sourceTree = "<group>"; };
 		177841EA26BE8C3200354898 /* UITableView+helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+helper.swift"; sourceTree = "<group>"; };
 		177841F026BEB19000354898 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
 		177841F526BEB4E300354898 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
 		177841F726BFDE5D00354898 /* Youtube.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Youtube.plist; sourceTree = "<group>"; };
+		177841FB26BFECB700354898 /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
+		177841FD26BFEE0300354898 /* MainMovieTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMovieTableViewController.swift; sourceTree = "<group>"; };
+		177841FF26BFEEC900354898 /* ResultsTableController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsTableController.swift; sourceTree = "<group>"; };
 		177F743E26BAE8DA009110B8 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		177F744026BAE978009110B8 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		177F744226BAF38F009110B8 /* MovieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRow.swift; sourceTree = "<group>"; };
@@ -129,6 +129,26 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		177841FA26BFEC8800354898 /* table */ = {
+			isa = PBXGroup;
+			children = (
+				177841FB26BFECB700354898 /* BaseTableViewController.swift */,
+				177841FD26BFEE0300354898 /* MainMovieTableViewController.swift */,
+				177841FF26BFEEC900354898 /* ResultsTableController.swift */,
+				177841EA26BE8C3200354898 /* UITableView+helper.swift */,
+			);
+			path = table;
+			sourceTree = "<group>";
+		};
+		1778420126BFFC0700354898 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				177841E426BE762600354898 /* CardImageUIView.swift */,
+				17748A5326BD2DE500B2AAD1 /* MovieCell.swift */,
+			);
+			path = cell;
+			sourceTree = "<group>";
+		};
 		177F744826BBB541009110B8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,12 +186,8 @@
 			children = (
 				173B7DA526BAE6B10081E873 /* FavoritesView.swift */,
 				17748A5126BD2B4500B2AAD1 /* WrapperFavoritesViewController.swift */,
-				177841E626BE88F000354898 /* SearchFavoritesUIViewController.swift */,
-				177841E826BE8B6700354898 /* MovieTableView.swift */,
-				175B56D926BD1BCC00A873D8 /* FavoritesUIViewController.swift */,
-				177841EA26BE8C3200354898 /* UITableView+helper.swift */,
-				17748A5326BD2DE500B2AAD1 /* MovieCell.swift */,
-				177841E426BE762600354898 /* CardImageUIView.swift */,
+				177841FA26BFEC8800354898 /* table */,
+				1778420126BFFC0700354898 /* cell */,
 			);
 			path = favotites;
 			sourceTree = "<group>";
@@ -323,16 +339,16 @@
 				177F744326BAF38F009110B8 /* MovieRow.swift in Sources */,
 				177F744526BAF39A009110B8 /* MovieCard.swift in Sources */,
 				177841F626BEB4E300354898 /* DataProvider.swift in Sources */,
-				177841E726BE88F000354898 /* SearchFavoritesUIViewController.swift in Sources */,
-				177841E926BE8B6700354898 /* MovieTableView.swift in Sources */,
 				17BA98C026BABC3500577066 /* SceneDelegate.swift in Sources */,
 				177841EB26BE8C3200354898 /* UITableView+helper.swift in Sources */,
 				173B7DA226BAD8070081E873 /* Movie.swift in Sources */,
 				17FDEAF126BBF52900E71CE6 /* PlaylistPage.swift in Sources */,
+				177841FE26BFEE0300354898 /* MainMovieTableViewController.swift in Sources */,
 				173B7DA826BAE6BC0081E873 /* SettingsView.swift in Sources */,
+				1778420026BFEEC900354898 /* ResultsTableController.swift in Sources */,
 				177841F126BEB19000354898 /* APIError.swift in Sources */,
+				177841FC26BFECB700354898 /* BaseTableViewController.swift in Sources */,
 				177F745626BBBF04009110B8 /* MovieLoadRow.swift in Sources */,
-				175B56DA26BD1BCC00A873D8 /* FavoritesUIViewController.swift in Sources */,
 				175B56D626BD115100A873D8 /* ErrorView.swift in Sources */,
 				175B56D826BD131200A873D8 /* ButtonStyleGuide.swift in Sources */,
 				17BA98C226BABC3500577066 /* ContentView.swift in Sources */,

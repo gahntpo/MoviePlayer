@@ -36,7 +36,7 @@ struct MovieRow: View {
                 .multilineTextAlignment(.leading)
                 .lineLimit(3)
             
-        } .padding()
+        } .padding(15)
     }
 }
 

@@ -63,6 +63,7 @@ class MovieCell: UITableViewCell {
         titleLabel.adjustsFontForContentSizeCategory = true
         titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 0
+       
         
         NSLayoutConstraint.activate([
             cardImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: spacing),
@@ -80,7 +81,7 @@ class MovieCell: UITableViewCell {
         
         
     }
-    let spacing = CGFloat(10)
+    let spacing = CGFloat(15)
     
 
 }
