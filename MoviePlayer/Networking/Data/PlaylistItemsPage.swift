@@ -5,6 +5,14 @@
 //  Created by Karin Prater on 05.08.21.
 //
 
+/*
+ use to decode json returned from
+"https://www.googleapis.com/youtube/v3/playlistItems?maxResults=\(maxResults)&part=snippet&playlistId=\(playlistID)&key=\(apiKey)"
+ when fetching movies for playlist with playlistID
+ 
+ 
+ */
+
 import Foundation
 
 

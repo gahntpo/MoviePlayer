@@ -20,6 +20,13 @@
 		17748A5226BD2B4500B2AAD1 /* WrapperFavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17748A5126BD2B4500B2AAD1 /* WrapperFavoritesViewController.swift */; };
 		17748A5426BD2DE500B2AAD1 /* MovieCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17748A5326BD2DE500B2AAD1 /* MovieCell.swift */; };
 		17748A5626BD37D700B2AAD1 /* ImageCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17748A5526BD37D700B2AAD1 /* ImageCache.swift */; };
+		177841E526BE762600354898 /* CardImageUIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841E426BE762600354898 /* CardImageUIView.swift */; };
+		177841E726BE88F000354898 /* SearchFavoritesUIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841E626BE88F000354898 /* SearchFavoritesUIViewController.swift */; };
+		177841E926BE8B6700354898 /* MovieTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841E826BE8B6700354898 /* MovieTableView.swift */; };
+		177841EB26BE8C3200354898 /* UITableView+helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841EA26BE8C3200354898 /* UITableView+helper.swift */; };
+		177841F126BEB19000354898 /* APIError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841F026BEB19000354898 /* APIError.swift */; };
+		177841F626BEB4E300354898 /* DataProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177841F526BEB4E300354898 /* DataProvider.swift */; };
+		177841F826BFDE5D00354898 /* Youtube.plist in Resources */ = {isa = PBXBuildFile; fileRef = 177841F726BFDE5D00354898 /* Youtube.plist */; };
 		177F743F26BAE8DA009110B8 /* MovieDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F743E26BAE8DA009110B8 /* MovieDetailView.swift */; };
 		177F744126BAE978009110B8 /* ImageLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F744026BAE978009110B8 /* ImageLoader.swift */; };
 		177F744326BAF38F009110B8 /* MovieRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 177F744226BAF38F009110B8 /* MovieRow.swift */; };
@@ -57,6 +64,13 @@
 		17748A5126BD2B4500B2AAD1 /* WrapperFavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WrapperFavoritesViewController.swift; sourceTree = "<group>"; };
 		17748A5326BD2DE500B2AAD1 /* MovieCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieCell.swift; sourceTree = "<group>"; };
 		17748A5526BD37D700B2AAD1 /* ImageCache.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageCache.swift; sourceTree = "<group>"; };
+		177841E426BE762600354898 /* CardImageUIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardImageUIView.swift; sourceTree = "<group>"; };
+		177841E626BE88F000354898 /* SearchFavoritesUIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFavoritesUIViewController.swift; sourceTree = "<group>"; };
+		177841E826BE8B6700354898 /* MovieTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieTableView.swift; sourceTree = "<group>"; };
+		177841EA26BE8C3200354898 /* UITableView+helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITableView+helper.swift"; sourceTree = "<group>"; };
+		177841F026BEB19000354898 /* APIError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIError.swift; sourceTree = "<group>"; };
+		177841F526BEB4E300354898 /* DataProvider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataProvider.swift; sourceTree = "<group>"; };
+		177841F726BFDE5D00354898 /* Youtube.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Youtube.plist; sourceTree = "<group>"; };
 		177F743E26BAE8DA009110B8 /* MovieDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailView.swift; sourceTree = "<group>"; };
 		177F744026BAE978009110B8 /* ImageLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLoader.swift; sourceTree = "<group>"; };
 		177F744226BAF38F009110B8 /* MovieRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieRow.swift; sourceTree = "<group>"; };
@@ -103,19 +117,29 @@
 			path = main;
 			sourceTree = "<group>";
 		};
-		177F744826BBB541009110B8 /* data */ = {
+		177841F226BEB19F00354898 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				17FDEAF026BBF52900E71CE6 /* PlaylistPage.swift */,
+				17FDEAF626BC1F2200E71CE6 /* PlaylistItemsPage.swift */,
+				17FDEAF426BC1D5700E71CE6 /* Snippet.swift */,
+				177F745126BBB85A009110B8 /* MovieCategory.swift */,
+				173B7DA126BAD8070081E873 /* Movie.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		177F744826BBB541009110B8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				173B7D9F26BAC39E0081E873 /* MovieFetcher.swift */,
 				17FB5F3926BBC76E0027C908 /* FavoritesManager.swift */,
 				173B7D9D26BAC3750081E873 /* Constants.swift */,
-				173B7DA126BAD8070081E873 /* Movie.swift */,
-				177F745126BBB85A009110B8 /* MovieCategory.swift */,
-				17FDEAF026BBF52900E71CE6 /* PlaylistPage.swift */,
-				17FDEAF426BC1D5700E71CE6 /* Snippet.swift */,
-				17FDEAF626BC1F2200E71CE6 /* PlaylistItemsPage.swift */,
+				177841F026BEB19000354898 /* APIError.swift */,
+				177841F526BEB4E300354898 /* DataProvider.swift */,
+				177841F226BEB19F00354898 /* Data */,
 			);
-			path = data;
+			path = Networking;
 			sourceTree = "<group>";
 		};
 		177F744926BBB557009110B8 /* settings */ = {
@@ -129,6 +153,7 @@
 		177F744A26BBB568009110B8 /* utility  */ = {
 			isa = PBXGroup;
 			children = (
+				17748A5526BD37D700B2AAD1 /* ImageCache.swift */,
 				177F744026BAE978009110B8 /* ImageLoader.swift */,
 				17FB5F3726BBC4D40027C908 /* TextStyleGuide.swift */,
 				175B56D726BD131200A873D8 /* ButtonStyleGuide.swift */,
@@ -141,9 +166,12 @@
 			children = (
 				173B7DA526BAE6B10081E873 /* FavoritesView.swift */,
 				17748A5126BD2B4500B2AAD1 /* WrapperFavoritesViewController.swift */,
+				177841E626BE88F000354898 /* SearchFavoritesUIViewController.swift */,
+				177841E826BE8B6700354898 /* MovieTableView.swift */,
 				175B56D926BD1BCC00A873D8 /* FavoritesUIViewController.swift */,
+				177841EA26BE8C3200354898 /* UITableView+helper.swift */,
 				17748A5326BD2DE500B2AAD1 /* MovieCell.swift */,
-				17748A5526BD37D700B2AAD1 /* ImageCache.swift */,
+				177841E426BE762600354898 /* CardImageUIView.swift */,
 			);
 			path = favotites;
 			sourceTree = "<group>";
@@ -196,12 +224,13 @@
 				177F744C26BBB587009110B8 /* movies */,
 				177F744B26BBB57C009110B8 /* favotites */,
 				177F744926BBB557009110B8 /* settings */,
-				177F744826BBB541009110B8 /* data */,
+				177F744826BBB541009110B8 /* Networking */,
 				177F744A26BBB568009110B8 /* utility  */,
 				17BA98C326BABC3600577066 /* Assets.xcassets */,
 				177F744626BBB438009110B8 /* TestMedia.xcassets */,
 				17BA98C826BABC3600577066 /* LaunchScreen.storyboard */,
 				17BA98CB26BABC3600577066 /* Info.plist */,
+				177841F726BFDE5D00354898 /* Youtube.plist */,
 				17BA98C526BABC3600577066 /* Preview Content */,
 			);
 			path = MoviePlayer;
@@ -274,6 +303,7 @@
 			files = (
 				17BA98CA26BABC3600577066 /* LaunchScreen.storyboard in Resources */,
 				17BA98C726BABC3600577066 /* Preview Assets.xcassets in Resources */,
+				177841F826BFDE5D00354898 /* Youtube.plist in Resources */,
 				177F744726BBB438009110B8 /* TestMedia.xcassets in Resources */,
 				17BA98C426BABC3600577066 /* Assets.xcassets in Resources */,
 			);
@@ -292,10 +322,15 @@
 				17FDEAF726BC1F2200E71CE6 /* PlaylistItemsPage.swift in Sources */,
 				177F744326BAF38F009110B8 /* MovieRow.swift in Sources */,
 				177F744526BAF39A009110B8 /* MovieCard.swift in Sources */,
+				177841F626BEB4E300354898 /* DataProvider.swift in Sources */,
+				177841E726BE88F000354898 /* SearchFavoritesUIViewController.swift in Sources */,
+				177841E926BE8B6700354898 /* MovieTableView.swift in Sources */,
 				17BA98C026BABC3500577066 /* SceneDelegate.swift in Sources */,
+				177841EB26BE8C3200354898 /* UITableView+helper.swift in Sources */,
 				173B7DA226BAD8070081E873 /* Movie.swift in Sources */,
 				17FDEAF126BBF52900E71CE6 /* PlaylistPage.swift in Sources */,
 				173B7DA826BAE6BC0081E873 /* SettingsView.swift in Sources */,
+				177841F126BEB19000354898 /* APIError.swift in Sources */,
 				177F745626BBBF04009110B8 /* MovieLoadRow.swift in Sources */,
 				175B56DA26BD1BCC00A873D8 /* FavoritesUIViewController.swift in Sources */,
 				175B56D626BD115100A873D8 /* ErrorView.swift in Sources */,
@@ -311,6 +346,7 @@
 				173B7D9E26BAC3750081E873 /* Constants.swift in Sources */,
 				175B56D426BD114600A873D8 /* LoadingView.swift in Sources */,
 				177F745226BBB85A009110B8 /* MovieCategory.swift in Sources */,
+				177841E526BE762600354898 /* CardImageUIView.swift in Sources */,
 				173B7DA026BAC39E0081E873 /* MovieFetcher.swift in Sources */,
 				177F743F26BAE8DA009110B8 /* MovieDetailView.swift in Sources */,
 				17FB5F3826BBC4D40027C908 /* TextStyleGuide.swift in Sources */,

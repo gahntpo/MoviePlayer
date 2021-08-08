@@ -15,8 +15,10 @@ enum DisplayStyle: String, CaseIterable {
 
 struct MoviesView: View {
     
+    
+    //save in user defaults
     @State private var displayStyle = DisplayStyle.list
-    @StateObject var fetcher: MovieFetcher
+    @ObservedObject var fetcher: MovieFetcher
     
     var body: some View {
         NavigationView {
@@ -32,18 +34,26 @@ struct MoviesView: View {
                 }.pickerStyle(SegmentedPickerStyle())
                 .padding()
                 
-                
-                
-                switch displayStyle {
-                case .list: ListMovieView(categories: fetcher.categories)
-                case .grid: GridMovieView(categories: fetcher.categories)
-                }
-                
+                // using TabView to keep previous scroll postion
+                TabView(selection: $displayStyle,
+                        content:  {
+                           ListMovieView(categories: fetcher.categories)
+                                .tag(DisplayStyle.list)
+                          
+                            GridMovieView(categories: fetcher.categories)
+                                .tag(DisplayStyle.grid)
+                            
+                })
+                    
+                    .tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                //showing page style without page indicator
             }
             .navigationTitle("Movies")
             .navigationBarTitleDisplayMode(.inline)
         }
     }
+    
+    
 }
 
 struct MoviesView_Previews: PreviewProvider {

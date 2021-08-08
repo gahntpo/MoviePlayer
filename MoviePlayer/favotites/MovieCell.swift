@@ -13,24 +13,15 @@ class MovieCell: UITableViewCell {
         didSet {
             if let movie = movie, let url = URL(string: movie.posterImageURL) {
                 
-                ImageCache.publicCache.load(url: url as NSURL, movie: movie) { [weak self] movie, image in
+                ImageCache.publicCache.load(url: url as NSURL) { [weak self] url, image in
+                    let url = url as URL
                     
-                    if let  image = image, self?.movie == movie {
-                        
-                        self?.accessoryImageView.image = image
-                        if let contentWidth = self?.contentView.frame.width, let spacing = self?.spacing {
-//                            let width = contentWidth - 2 * spacing
-//                            let ratio = image.size.width / image.size.height
-             //                            self?.heightConstraint?.constant = width / ratio
-                            //TODO: fix layout error
-                        }
+                    //checking if the returned image corresponse to current movie
+                    if let  image = image, self?.movie?.posterImageURL == url.absoluteString {
+                        self?.cardImage.image = image
                     }
-                    
                 }
-                
             }
-            
-            
         }
     }
     
@@ -38,7 +29,9 @@ class MovieCell: UITableViewCell {
     
     static let identifier = "movieCell"
     let titleLabel = UILabel()
-    let accessoryImageView = UIImageView()
+    
+    let cardImage = CardImageUIView()
+    
     var heightConstraint: NSLayoutConstraint?
     
     override func awakeFromNib() {
@@ -55,43 +48,36 @@ class MovieCell: UITableViewCell {
     
     
     func configure() {
+//        self.titleLabel.backgroundColor = UIColor.lightGray
+        self.contentView.layer.shadowColor = UIColor.gray.cgColor
+        self.contentView.layer.shadowRadius = 10
+        
       //TODO: - when to call configure?
-        accessoryImageView.translatesAutoresizingMaskIntoConstraints = false
+        cardImage.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
        
-        contentView.addSubview(accessoryImageView)
+        contentView.addSubview(cardImage)
         contentView.addSubview(titleLabel)
 
         titleLabel.font = UIFont.preferredFont(forTextStyle: .headline)
         titleLabel.adjustsFontForContentSizeCategory = true
-        titleLabel.textAlignment = .center
+        titleLabel.textAlignment = .left
+        titleLabel.numberOfLines = 0
         
-        accessoryImageView.layer.cornerRadius = 20
-        accessoryImageView.clipsToBounds = true
-        accessoryImageView.layer.shadowColor = UIColor.gray.cgColor
-        accessoryImageView.layer.shadowRadius = 10
-        accessoryImageView.backgroundColor = UIColor.systemBackground
-        
-        accessoryImageView.image = UIImage(named: "MovieDisabled")
-        accessoryImageView.contentMode = UIView.ContentMode.scaleAspectFill
-        
-      
         NSLayoutConstraint.activate([
-            accessoryImageView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: spacing),
-            accessoryImageView.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -spacing),
-            accessoryImageView.topAnchor.constraint(equalTo: contentView.topAnchor, constant: spacing),
-            accessoryImageView.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -2 * spacing),
-            accessoryImageView.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.5),
+            cardImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: spacing),
+            cardImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -spacing),
+            cardImage.topAnchor.constraint(equalTo: contentView.topAnchor, constant: spacing),
+//            cardImage.widthAnchor.constraint(equalTo: contentView.widthAnchor, constant: -2 * spacing),
+//            cardImage.heightAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.55),
             
             
-            titleLabel.topAnchor.constraint(equalTo: accessoryImageView.bottomAnchor, constant: spacing),
+            titleLabel.topAnchor.constraint(equalTo: cardImage.bottomAnchor, constant: spacing),
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor,  constant: spacing),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor,  constant: -spacing),
-            titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,  constant: -spacing)
+           titleLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor,  constant: -spacing)
             ])
         
-//        self.heightConstraint = accessoryImageView.heightAnchor.constraint(equalToConstant: 200)
-//        self.heightConstraint?.isActive = true
         
     }
     let spacing = CGFloat(10)

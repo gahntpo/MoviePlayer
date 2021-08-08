@@ -13,7 +13,7 @@ class FavoritesManager: ObservableObject {
     
     @Published var movies = [Movie]()
     
-    var subscriptions = Set<AnyCancellable>()
+    private var subscriptions = Set<AnyCancellable>()
     
     init() {
       
@@ -25,7 +25,7 @@ class FavoritesManager: ObservableObject {
         
     }
     
-    
+    // used to know if movie is a favorite
     func favoritesContain(movie: Movie) -> Bool {
         if  movies.contains(movie) {
             return true
@@ -34,6 +34,7 @@ class FavoritesManager: ObservableObject {
         }
     }
     
+    // called when user tabs on faviorite button in detail view
     func toggle(movie: Movie) {
         if let index = movies.firstIndex(of: movie) {
             movies.remove(at: index)
@@ -45,7 +46,7 @@ class FavoritesManager: ObservableObject {
     
     //MARK: - save and load
     
-    func loadFavorites() {
+   private func loadFavorites() {
         let url = getDocumentURL()
        
         DispatchQueue.global(qos: .background).async {
@@ -58,7 +59,7 @@ class FavoritesManager: ObservableObject {
         }
     }
     
-    func setupSaveData() {
+    private func setupSaveData() {
         $movies
             .dropFirst()
             //.print("++ save data stream")
@@ -75,7 +76,7 @@ class FavoritesManager: ObservableObject {
             }.store(in: &subscriptions)
     }
     
-    func getDocumentURL() -> URL {
+    private func getDocumentURL() -> URL {
         let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
         return paths[0].appendingPathComponent("favorites")
     }
@@ -83,7 +84,7 @@ class FavoritesManager: ObservableObject {
     
     static func example() -> FavoritesManager {
         let fav = FavoritesManager()
-        fav.movies = [Movie.example1(), Movie.example2()]
+        fav.movies = [Movie.example1(), Movie.example3(), Movie.example2()]
         return fav
     }
 }

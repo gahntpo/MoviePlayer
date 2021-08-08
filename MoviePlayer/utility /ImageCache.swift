@@ -5,12 +5,11 @@ Abstract:
 The Image cache.
  
  
-
- resource from https://developer.apple.com/documentation/uikit/views_and_controls/table_views/asynchronously_loading_images_into_table_and_collection_views
+resource from https://developer.apple.com/documentation/uikit/views_and_controls/table_views/asynchronously_loading_images_into_table_and_collection_views
 
 Singleton pattern: one instance of NSCache
  
-
+changed to return URL in completion handler instead of concrete type
 */
 
 
@@ -22,21 +21,21 @@ public class ImageCache {
     public static let publicCache = ImageCache()
     var placeholderImage = UIImage(systemName: "rectangle")!
     private let cachedImages = NSCache<NSURL, UIImage>()
-    private var loadingResponses = [NSURL: [(Movie, UIImage?) -> Swift.Void]]()
+    private var loadingResponses = [NSURL: [(NSURL, UIImage?) -> Swift.Void]]()
     
     public final func image(url: NSURL) -> UIImage? {
         return cachedImages.object(forKey: url)
     }
     /// - Tag: cache
     // Returns the cached image if available, otherwise asynchronously loads and caches it.
-    final func load(url: NSURL, movie: Movie, completion: @escaping (Movie, UIImage?) -> Swift.Void) {
+    final func load(url: NSURL, completion: @escaping (NSURL, UIImage?) -> Swift.Void) {
         // Check for a cached image.
         
        
         if let cachedImage = image(url: url) {
             DispatchQueue.main.async {
                
-                completion(movie, cachedImage)
+                completion(url, cachedImage)
             }
             return
         }
@@ -57,7 +56,7 @@ public class ImageCache {
             guard let responseData = data, let image = UIImage(data: responseData),
                 let blocks = self.loadingResponses[url], error == nil else {
                 DispatchQueue.main.async {
-                    completion(movie, nil)
+                    completion(url, nil)
                 }
                 return
             }
@@ -66,7 +65,7 @@ public class ImageCache {
             // Iterate over each requestor for the image and pass it back.
             for block in blocks {
                 DispatchQueue.main.async {
-                    block(movie, image)
+                    block(url, image)
                 }
                 return
             }

@@ -22,7 +22,6 @@ struct ContentView: View {
     @StateObject var fetcher = MovieFetcher()
     
   
-    
     var body: some View {
         
         if fetcher.isLoading {
@@ -55,8 +54,11 @@ struct ContentView: View {
                 
                 
                 
-            }.environmentObject(favorties)
+            }
+            .environmentObject(favorties)
+         
         }
+      
     }
 }
 

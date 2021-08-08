@@ -11,6 +11,8 @@ import Combine
 class FavoritesUIViewController: UIViewController {
 
     
+    var selectedRowForMovie: (Movie) -> Void = { _ in }
+    
     enum Section {
         case main
     }
@@ -31,6 +33,7 @@ class FavoritesUIViewController: UIViewController {
             tableView.reloadData()
         }
     }
+    private var searchController: UISearchController!
     
     let searchBar = UISearchBar()
     var dataSource: UITableViewDiffableDataSource<Section, Movie>! = nil
@@ -78,6 +81,12 @@ class FavoritesUIViewController: UIViewController {
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
         
+        let resultsTableController = UIViewController()
+        resultsTableController.view.backgroundColor = UIColor.red
+        searchController = UISearchController(searchResultsController: resultsTableController)
+
+        navigationItem.searchController = searchController
+        
         tableView.estimatedRowHeight = 200
     
         tableView.separatorStyle = .none
@@ -107,17 +116,19 @@ extension FavoritesUIViewController: UITableViewDelegate, UITableViewDataSource 
             fatalError("Cannot create new cell")
         }
         
-     cell.configure()
+    
         let movie = filteredMovies[indexPath.row]
         cell.movie = movie
         cell.titleLabel.text = movie.title
+        cell.configure()
         return cell
     }
     
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-     
-        //TODO: push to detail
+        // push to detail
+        let selectedMovie = favorites.movies[indexPath.row]
+        selectedRowForMovie(selectedMovie)
     }
     
 }
@@ -127,3 +138,4 @@ extension FavoritesUIViewController: UISearchBarDelegate {
         updateMovies(for: searchText, allMovies: favorites.movies)
     }
 }
+

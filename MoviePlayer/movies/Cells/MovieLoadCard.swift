@@ -16,7 +16,10 @@ struct MovieLoadCard: View {
         
         MovieCard(image: posterLoader.image, title: movie.title)
             .onAppear(perform: {
-                posterLoader.load(url: movie.posterImageURL)
+             
+                if posterLoader.image == nil {
+                     posterLoader.load(url: movie.posterImageURL)
+                }
             })
     }
 }

@@ -9,7 +9,10 @@ import SwiftUI
 
 struct ListMovieView: View {
     
-    let categories: [MovieCategory]
+
+   let categories: [MovieCategory]
+    
+    
    
     var body: some View {
         
@@ -41,11 +44,13 @@ struct ListMovieView: View {
             
             
         })
-    }
-}
 
-struct ListMovieView_Previews: PreviewProvider {
-    static var previews: some View {
-        ListMovieView(categories: [MovieCategory.example1(), MovieCategory.example2(), MovieCategory.example1()])
+        
     }
 }
+//
+//struct ListMovieView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        ListMovieView(categories: [MovieCategory.example1(), MovieCategory.example2(), MovieCategory.example1()])
+//    }
+//}

@@ -21,7 +21,7 @@ struct MovieRow: View {
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(10)
-                    .shadow(radius: 10, x: 0, y: 10)
+                    .shadow(color: .gray, radius: 10, x: 0, y: 10)
                 
             } else {
                 ZStack {
@@ -33,6 +33,9 @@ struct MovieRow: View {
             }
             Text(title)
                 .modifier(MovieCellStyle())
+                .multilineTextAlignment(.leading)
+                .lineLimit(3)
+            
         } .padding()
     }
 }

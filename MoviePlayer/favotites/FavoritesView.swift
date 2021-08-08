@@ -10,6 +10,7 @@ import SwiftUI
 struct FavoritesView: View {
     
     @EnvironmentObject var favorites: FavoritesManager
+    @State var selectedMovie: Movie? = nil
     
     @State private var searchText: String = ""
     
@@ -24,9 +25,21 @@ struct FavoritesView: View {
     var body: some View {
         
         NavigationView {
-        WrapperFavoritesViewController(favorites: favorites)
+            WrapperFavoritesViewController(favorites: favorites, selectedMovie: $selectedMovie)
             .navigationTitle("Favorites")
             .navigationBarTitleDisplayMode(.inline)
+                .background(
+                    Group {
+                        if selectedMovie != nil {
+                            NavigationLink(
+                                destination: MovieDetailView(movie: selectedMovie!),
+                                tag: selectedMovie!,
+                                selection: $selectedMovie,
+                                label: {Text("Navigate")})
+                        }else {
+                            EmptyView()
+                        }
+                    })
         }
 //        VStack {
 //            Text("Favorites")

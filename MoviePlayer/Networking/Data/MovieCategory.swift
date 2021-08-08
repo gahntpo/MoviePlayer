@@ -43,6 +43,8 @@ struct MovieCategory: Identifiable, Decodable {
         self.snippet = Snippet(channelID: channelID, title: title, description: description, thumbnails: thumbnails)
     }
 
+    
+    //MARK: - preview helper
     static func example1() -> MovieCategory {
        
         var cat = MovieCategory(playlistId: "abcd", channelID: "abcd", title: "Action", description: "", thumbnails: Thumbnails(url: ""))
@@ -56,5 +58,13 @@ struct MovieCategory: Identifiable, Decodable {
         cat.movies = [Movie.example1(), Movie.example2(), Movie.example1(),  Movie.example2()]
         return cat
     }
+    
+}
+
+extension MovieCategory: Comparable, Hashable {
+    static func < (lhs: MovieCategory, rhs: MovieCategory) -> Bool {
+        lhs.id == rhs.id && lhs.movies == rhs.movies
+    }
+    
     
 }

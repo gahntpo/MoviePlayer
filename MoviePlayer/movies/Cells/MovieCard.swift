@@ -12,6 +12,7 @@ struct MovieCard: View {
     let title: String
     
     let width: CGFloat = 140
+    let cornerRadius: CGFloat = 10
     
     var body: some View {
         VStack(alignment: .center, spacing: 10) {
@@ -20,10 +21,11 @@ struct MovieCard: View {
                     .resizable()
                     .scaledToFill()
                     .frame(width: width, height: width * 1.5)
-                    .clipShape(RoundedRectangle(cornerRadius: 10))
+                    .clipShape(RoundedRectangle(cornerRadius: cornerRadius))
                     .shadow(radius: 10, x: 0, y: 10)
             }else {
                 Color.gray
+                    .cornerRadius(cornerRadius)
                     .frame(width: width, height: width * 1.5)
             }
             Text(title)
@@ -31,9 +33,7 @@ struct MovieCard: View {
                 .multilineTextAlignment(.leading)
                 .lineLimit(3)
                
-                .frame(width: width)
-//                .frame(maxWidth: .infinity, alignment: .leading)
-            
+                .frame(width: width, alignment: .leading)
             
         } .padding(10)
         
@@ -45,7 +45,8 @@ struct MovieCard_Previews: PreviewProvider {
         Group {
             MovieCard(image: UIImage(named: "venom_thumbnail"), title: "Venom")
             MovieCard(image: UIImage(named: "affen_movieposter"), title: "Planet der Affen: Prevolution")
+            MovieCard(image: nil, title: "Needs to be fetched")
         }
-        .previewLayout(.fixed(width: 400, height: 400))
+        .previewLayout(.fixed(width: 200, height: 300))
     }
 }
