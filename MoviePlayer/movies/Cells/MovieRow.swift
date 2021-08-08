@@ -21,7 +21,7 @@ struct MovieRow: View {
                     .resizable()
                     .scaledToFit()
                     .cornerRadius(10)
-                    .shadow(color: .gray, radius: 10, x: 0, y: 10)
+                    .shadow(color: Color(.sRGB, white: 0, opacity: 0.65), radius: 10, x: 0, y: 10)
                 
             } else {
                 ZStack {
@@ -46,6 +46,7 @@ struct MovieRow_Previews: PreviewProvider {
             MovieRow(image: UIImage(named: "venom_thumbnail"), title: "Venom")
                 
             MovieRow(image: UIImage(named: "affen_thumbnail"), title: "Planet der Affen: Prevolution")
+                .preferredColorScheme(.dark)
         }
         .previewLayout(.fixed(width: 400, height: 300))
           

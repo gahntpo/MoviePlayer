@@ -143,8 +143,8 @@
 		1778420126BFFC0700354898 /* cell */ = {
 			isa = PBXGroup;
 			children = (
-				177841E426BE762600354898 /* CardImageUIView.swift */,
 				17748A5326BD2DE500B2AAD1 /* MovieCell.swift */,
+				177841E426BE762600354898 /* CardImageUIView.swift */,
 			);
 			path = cell;
 			sourceTree = "<group>";

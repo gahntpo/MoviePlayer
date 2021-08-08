@@ -52,7 +52,7 @@ class FavoritesManager: ObservableObject {
         DispatchQueue.global(qos: .background).async {
             if let data = try? Data(contentsOf: url), let movies = try? JSONDecoder().decode([Movie].self, from: data) {
                 DispatchQueue.main.async { [unowned self] in
-                    print("load finished")
+//                    print("load finished")
                     self.movies = movies
                 }
             }
@@ -69,10 +69,10 @@ class FavoritesManager: ObservableObject {
                 try data.write(to: self.getDocumentURL())
             })
             .receive(on: DispatchQueue.main)
-            .sink {
-                print("save action completed \($0)")
+            .sink { completion in
+//                print("save action completed \(completion)")
             } receiveValue: { _ in
-                print("save was success")
+//                print("save was success")
             }.store(in: &subscriptions)
     }
     

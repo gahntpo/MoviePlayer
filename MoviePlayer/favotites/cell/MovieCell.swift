@@ -64,7 +64,7 @@ class MovieCell: UITableViewCell {
         titleLabel.textAlignment = .left
         titleLabel.numberOfLines = 0
        
-        
+        //TODO: fix unable to satisfy all constraints
         NSLayoutConstraint.activate([
             cardImage.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: spacing),
             cardImage.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -spacing),

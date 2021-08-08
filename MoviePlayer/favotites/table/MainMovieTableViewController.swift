@@ -61,6 +61,7 @@ class MainMovieTableViewController: BaseTableViewController {
         favorites.$movies.sink { [weak self] movies in
 //            self?.updateMovies(for: self?.searchBar.text ?? "", allMovies: movies)
             self?.movies = movies
+           
         }.store(in: &subscriptions)
     }
 
@@ -91,6 +92,7 @@ extension MainMovieTableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let selectedMovie = favorites.movies[indexPath.row]
         
+        // todo - make star rating editable
         let detail = MovieDetailView(movie: selectedMovie)
         let controller = UIHostingController(rootView: detail)
         self.navigationController?.pushViewController(controller, animated: true)

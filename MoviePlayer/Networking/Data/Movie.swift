@@ -30,7 +30,7 @@ struct Movie: Identifiable, Codable {
     
     let numberOfPeopleWatching: Int = 2021
     let categories: String = "Action, Science Fiction"
-    let rating: Double = Double.random(in: 2...5)
+    var rating: Double = Double.random(in: 2...5)
     
     public enum CodingKeys: String, CodingKey {
         case id

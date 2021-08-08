@@ -20,7 +20,8 @@ class BaseTableViewController: UITableViewController {
 
         tableView.register(MovieCell.self,
                            forCellReuseIdentifier: BaseTableViewController.tableViewCellIdentifier)
-        tableView.estimatedRowHeight = 200
+       tableView.estimatedRowHeight = 200
+//        tableView.rowHeight = UITableView.automaticDimension
         tableView.separatorStyle = .none
     }
     

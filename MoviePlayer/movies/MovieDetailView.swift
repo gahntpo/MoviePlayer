@@ -69,7 +69,12 @@ struct MovieDetailView: View {
                         Text(String(format: "%.1f", movie.rating))
                             .foregroundColor(starColor).padding(.trailing, 2)
                         ForEach(0..<5, id: \.self) { star in
-                            Image(systemName: "star.fill").foregroundColor(star < Int(movie.rating) ? starColor : Color(.systemGray))
+                            Button(action: {
+//                                movie.rating = 1
+                            }, label: {
+                                Image(systemName: "star.fill").foregroundColor(star < Int(movie.rating) ? starColor : Color(.systemGray))
+                            })
+                           
                             
                         }
                         //TODO: - interactives rating

@@ -46,7 +46,7 @@ class CardImageUIView: UIView {
         imageView.backgroundColor = UIColor.systemBackground
         
         self.layer.cornerRadius = 20
-        self.layer.shadowColor = UIColor.gray.cgColor
+        self.layer.shadowColor = UIColor(white: 0, alpha: 0.65).cgColor
         self.layer.shadowRadius = 10
         self.layer.shadowOpacity = 0.5
         self.layer.shadowOffset = CGSize(width: 0, height: 10)
@@ -58,8 +58,8 @@ class CardImageUIView: UIView {
             imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: inset),
             imageView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -inset),
             imageView.topAnchor.constraint(equalTo: self.topAnchor, constant: inset),
-            imageView.widthAnchor.constraint(equalTo: self.widthAnchor, constant: -2 * inset),
-            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+            imageView.widthAnchor.constraint(equalTo: self.widthAnchor),
+            imageView.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant:  -inset)
         ])
        updateAspectRatioConstraint()
       }
@@ -82,7 +82,7 @@ class CardImageUIView: UIView {
                                        toItem: imageView, attribute: .height,
                                        multiplier: aspectRatio, constant: 0)
             
-            self.addConstraint(c)
+           self.addConstraint(c)
             self.aspectRatioConstraint = c
             
         }
