@@ -28,11 +28,13 @@ struct GridMovieView: View {
                         
                         LazyHStack(alignment: .top, spacing: 0) {
                             ForEach(category.movies) { movie in
+                                
                                 NavigationLink(
                                     destination: MovieDetailView(movie: movie),
                                     label: {
                                         MovieLoadCard(movie: movie)
                                     })
+                                    .contentShape(Rectangle())
                                     .buttonStyle(PlainButtonStyle())
                                 
                             }

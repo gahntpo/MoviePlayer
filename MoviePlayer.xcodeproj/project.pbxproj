@@ -181,7 +181,7 @@
 			path = "utility ";
 			sourceTree = "<group>";
 		};
-		177F744B26BBB57C009110B8 /* favotites */ = {
+		177F744B26BBB57C009110B8 /* favorites */ = {
 			isa = PBXGroup;
 			children = (
 				173B7DA526BAE6B10081E873 /* FavoritesView.swift */,
@@ -189,7 +189,7 @@
 				177841FA26BFEC8800354898 /* table */,
 				1778420126BFFC0700354898 /* cell */,
 			);
-			path = favotites;
+			path = favorites;
 			sourceTree = "<group>";
 		};
 		177F744C26BBB587009110B8 /* movies */ = {
@@ -238,7 +238,7 @@
 				17BA98BF26BABC3500577066 /* SceneDelegate.swift */,
 				175B56D226BD113800A873D8 /* main */,
 				177F744C26BBB587009110B8 /* movies */,
-				177F744B26BBB57C009110B8 /* favotites */,
+				177F744B26BBB57C009110B8 /* favorites */,
 				177F744926BBB557009110B8 /* settings */,
 				177F744826BBB541009110B8 /* Networking */,
 				177F744A26BBB568009110B8 /* utility  */,
