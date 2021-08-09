@@ -107,14 +107,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		175B56D226BD113800A873D8 /* main */ = {
+		175B56D226BD113800A873D8 /* Main */ = {
 			isa = PBXGroup;
 			children = (
 				17BA98C126BABC3500577066 /* ContentView.swift */,
 				175B56D326BD114600A873D8 /* LoadingView.swift */,
 				175B56D526BD115100A873D8 /* ErrorView.swift */,
 			);
-			path = main;
+			path = Main;
 			sourceTree = "<group>";
 		};
 		177841F226BEB19F00354898 /* Data */ = {
@@ -129,7 +129,7 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
-		177841FA26BFEC8800354898 /* table */ = {
+		177841FA26BFEC8800354898 /* Table */ = {
 			isa = PBXGroup;
 			children = (
 				177841FB26BFECB700354898 /* BaseTableViewController.swift */,
@@ -137,23 +137,22 @@
 				177841FF26BFEEC900354898 /* ResultsTableController.swift */,
 				177841EA26BE8C3200354898 /* UITableView+helper.swift */,
 			);
-			path = table;
+			path = Table;
 			sourceTree = "<group>";
 		};
-		1778420126BFFC0700354898 /* cell */ = {
+		1778420126BFFC0700354898 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
 				17748A5326BD2DE500B2AAD1 /* MovieCell.swift */,
 				177841E426BE762600354898 /* CardImageUIView.swift */,
 			);
-			path = cell;
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		177F744826BBB541009110B8 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
 				173B7D9F26BAC39E0081E873 /* MovieFetcher.swift */,
-				17FB5F3926BBC76E0027C908 /* FavoritesManager.swift */,
 				173B7D9D26BAC3750081E873 /* Constants.swift */,
 				177841F026BEB19000354898 /* APIError.swift */,
 				177841F526BEB4E300354898 /* DataProvider.swift */,
@@ -162,15 +161,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		177F744926BBB557009110B8 /* settings */ = {
+		177F744926BBB557009110B8 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
 				173B7DA726BAE6BC0081E873 /* SettingsView.swift */,
 			);
-			path = settings;
+			path = Settings;
 			sourceTree = "<group>";
 		};
-		177F744A26BBB568009110B8 /* utility  */ = {
+		177F744A26BBB568009110B8 /* Utility  */ = {
 			isa = PBXGroup;
 			children = (
 				17748A5526BD37D700B2AAD1 /* ImageCache.swift */,
@@ -178,21 +177,22 @@
 				17FB5F3726BBC4D40027C908 /* TextStyleGuide.swift */,
 				175B56D726BD131200A873D8 /* ButtonStyleGuide.swift */,
 			);
-			path = "utility ";
+			path = "Utility ";
 			sourceTree = "<group>";
 		};
-		177F744B26BBB57C009110B8 /* favorites */ = {
+		177F744B26BBB57C009110B8 /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
 				173B7DA526BAE6B10081E873 /* FavoritesView.swift */,
 				17748A5126BD2B4500B2AAD1 /* WrapperFavoritesViewController.swift */,
-				177841FA26BFEC8800354898 /* table */,
-				1778420126BFFC0700354898 /* cell */,
+				17FB5F3926BBC76E0027C908 /* FavoritesManager.swift */,
+				177841FA26BFEC8800354898 /* Table */,
+				1778420126BFFC0700354898 /* Cell */,
 			);
-			path = favorites;
+			path = Favorites;
 			sourceTree = "<group>";
 		};
-		177F744C26BBB587009110B8 /* movies */ = {
+		177F744C26BBB587009110B8 /* Movies */ = {
 			isa = PBXGroup;
 			children = (
 				173B7DA326BAE69F0081E873 /* MoviesView.swift */,
@@ -201,7 +201,7 @@
 				177F743E26BAE8DA009110B8 /* MovieDetailView.swift */,
 				177F745726BBBF69009110B8 /* Cells */,
 			);
-			path = movies;
+			path = Movies;
 			sourceTree = "<group>";
 		};
 		177F745726BBBF69009110B8 /* Cells */ = {
@@ -236,12 +236,12 @@
 			children = (
 				17BA98BD26BABC3500577066 /* AppDelegate.swift */,
 				17BA98BF26BABC3500577066 /* SceneDelegate.swift */,
-				175B56D226BD113800A873D8 /* main */,
-				177F744C26BBB587009110B8 /* movies */,
-				177F744B26BBB57C009110B8 /* favorites */,
-				177F744926BBB557009110B8 /* settings */,
+				175B56D226BD113800A873D8 /* Main */,
+				177F744C26BBB587009110B8 /* Movies */,
+				177F744B26BBB57C009110B8 /* Favorites */,
+				177F744926BBB557009110B8 /* Settings */,
 				177F744826BBB541009110B8 /* Networking */,
-				177F744A26BBB568009110B8 /* utility  */,
+				177F744A26BBB568009110B8 /* Utility  */,
 				17BA98C326BABC3600577066 /* Assets.xcassets */,
 				177F744626BBB438009110B8 /* TestMedia.xcassets */,
 				17BA98C826BABC3600577066 /* LaunchScreen.storyboard */,
